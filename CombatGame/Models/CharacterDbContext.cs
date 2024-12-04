@@ -18,25 +18,61 @@ namespace CombatGame.Models
                 {
                     Id = 1,
                     Name = "Dave",
-                    Attack = 20,
-                    Defense = 20,
-                    HP = 5
+                    HP = 10,
+                    Strength = 20,
+                    Agility = 10,
+                    Intelligence = 7,
+                    teamId = 1
                 },
                  new Character
                 {
                     Id = 2,
                     Name = "Tony",
-                    Attack = 30,
-                    Defense = 30,
-                    HP = 1
-                },
+                    HP = 5,
+                    Strength = 5,
+                    Agility = 8,
+                    Intelligence = 25,
+                    teamId = 1
+                 },
+                 new Character
+                 {
+                    Id = 3,
+                    Name = "Peter Griffin",
+                    HP = 5,
+                    Strength = 5,
+                    Agility = 25,
+                    Intelligence = 5,
+                    teamId = 1
+                 },
+                 new Character
+                 {
+                     Id = 1,
+                     Name = "Kyle",
+                     HP = 10,
+                     Strength = 7,
+                     Agility = 10,
+                     Intelligence = 20,
+                     teamId = 2
+                 },
+                 new Character
+                 {
+                     Id = 2,
+                     Name = "Terry",
+                     HP = 5,
+                     Strength = 25,
+                     Agility = 8,
+                     Intelligence = 5,
+                     teamId = 2
+                 },
                  new Character
                  {
                      Id = 3,
-                     Name = "Peter Griffin",
-                     Attack = 99,
-                     Defense = 99,
-                     HP = 99
+                     Name = "Matt",
+                     HP = 5,
+                     Strength = 8,
+                     Agility = 25,
+                     Intelligence = 5,
+                     teamId = 2
                  }
                 );
         }
