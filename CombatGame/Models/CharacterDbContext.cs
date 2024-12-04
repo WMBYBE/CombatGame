@@ -26,6 +26,7 @@ namespace CombatGame.Models
                     Strength = 20,
                     Agility = 10,
                     Intelligence = 7,
+                    Defense = 10,
                     teamId = 1
                 },
                  new Character
@@ -36,7 +37,8 @@ namespace CombatGame.Models
                     Strength = 5,
                     Agility = 8,
                     Intelligence = 25,
-                    teamId = 1
+                     Defense = 10,
+                     teamId = 1
                  },
                  new Character
                  {
@@ -46,7 +48,8 @@ namespace CombatGame.Models
                     Strength = 5,
                     Agility = 25,
                     Intelligence = 5,
-                    teamId = 1
+                     Defense = 10,
+                     teamId = 1
                  },
                  new Character
                  {
@@ -56,6 +59,7 @@ namespace CombatGame.Models
                      Strength = 7,
                      Agility = 10,
                      Intelligence = 20,
+                     Defense = 10,
                      teamId = 2
                  },
                  new Character
@@ -66,6 +70,7 @@ namespace CombatGame.Models
                      Strength = 25,
                      Agility = 8,
                      Intelligence = 5,
+                     Defense = 10,
                      teamId = 2
                  },
                  new Character
@@ -76,6 +81,7 @@ namespace CombatGame.Models
                      Strength = 8,
                      Agility = 25,
                      Intelligence = 5,
+                     Defense = 10,
                      teamId = 2
                  }
                 );
