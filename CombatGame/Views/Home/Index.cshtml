@@ -1,8 +1,29 @@
-﻿@{
-    ViewData["Title"] = "Home Page";
+﻿@model List<Team> //just having it list teams rn
+@{
+    ViewBag.Title = "Home Page";
 }
+<head>
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-</div>
+</head>
+<h2>Forums</h2>
+<form asp-controller="Home" asp-action="Index">
+    <p>
+        <label>Title: <input type="text" name="SearchString" /></label>
+        <input type="submit" value="Filter" />
+    </p>
+</form>
+<table class="table table-bordered table-striped">
+    <thead>
+        <tr><th>Name</th></tr>
+    </thead>
+    <tbody>
+        @foreach (var teams in Model)
+        {
+            <tr>
+                <td>
+                    <a class="text-decoration-none border border-dark text-dark" > @teams.Name </a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

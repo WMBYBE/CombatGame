@@ -1,32 +1,31 @@
 ﻿using CombatGame.Models;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Hosting;
 using System.Diagnostics;
 
 namespace CombatGame.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly ILogger<HomeController> _logger;
+        private CharacterDbContext context { get; set; }
 
-        public HomeController(ILogger<HomeController> logger)
+        public HomeController(CharacterDbContext ctx)
         {
-            _logger = logger;
+            context = ctx;
         }
 
         public IActionResult Index()
         {
-            return View();
+            var teams = context.Teams.OrderBy(c => c.Name).ToList(); //Sends the lsit of forums to the index page so that you can see them all
+
+            List<Character> characters;
+            {
+                characters = context.Characters
+                    .OrderBy(p => p.Name).ToList();
+            }
+
+            return View(teams);
         }
 
-        public IActionResult Privacy()
-        {
-            return View();
-        }
-
-        [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
-        public IActionResult Error()
-        {
-            return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
-        }
     }
 }
