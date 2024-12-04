@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration.UserSecrets;
 
 namespace CombatGame.Models
 {
@@ -9,6 +10,9 @@ namespace CombatGame.Models
         { }
 
         public DbSet<Character> Characters { get; set; }
+        public DbSet<Team> Teams { get; set; }
+        public DbSet<Moves> Moves { get; set; }
+        public DbSet<User> Users { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -74,6 +78,38 @@ namespace CombatGame.Models
                      Intelligence = 5,
                      teamId = 2
                  }
+                );
+            modelBuilder.Entity<Team>().HasData(
+                new Team
+                {
+                    Id = 1,
+                    Name = "Boston Beaters",
+                    UserId = 1,
+                    TotalWins = 0
+                },
+                new Team
+                {
+                    Id = 2,
+                    Name = "Das Boyyen",
+                    UserId = 2,
+                    TotalWins = 10
+                }
+                );
+            modelBuilder.Entity<User>().HasData(
+                new User
+                {
+                    userId = 1,
+                    UserName = "NYnumb1",
+                    Password = "321",
+                    TotalWins = 0
+                },
+                new User
+                {
+                    userId = 2,
+                    UserName = "GERno1",
+                    Password = "123",
+                    TotalWins = 10
+                }
                 );
         }
     }
