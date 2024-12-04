@@ -1,8 +1,11 @@
-﻿namespace CombatGame.Models
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace CombatGame.Models
 {
     public class Moves
     {
-        public int Id { get; set; }
+        [Key]
+        public int MoveId { get; set; }
         public string Name { get; set; }
         public string Description { get; set; }
         public string Type { get; set; } //scaling on strength or int?

@@ -2,7 +2,7 @@
 {
     public class Character
     {
-        public int Id { get; set; }
+        public int CharacterId { get; set; }
         public string Name { get; set; }
         public int HP { get; set; }
         public int Strength { get; set; }

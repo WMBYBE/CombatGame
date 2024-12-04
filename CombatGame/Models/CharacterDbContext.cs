@@ -16,11 +16,10 @@ namespace CombatGame.Models
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            base.OnModelCreating(modelBuilder);
             modelBuilder.Entity<Character>().HasData(
                 new Character
                 {
-                    Id = 1,
+                    CharacterId = 1,
                     Name = "Dave",
                     HP = 10,
                     Strength = 20,
@@ -30,30 +29,30 @@ namespace CombatGame.Models
                     teamId = 1
                 },
                  new Character
-                {
-                    Id = 2,
-                    Name = "Tony",
-                    HP = 5,
-                    Strength = 5,
-                    Agility = 8,
-                    Intelligence = 25,
+                 {
+                     CharacterId = 2,
+                     Name = "Tony",
+                     HP = 5,
+                     Strength = 5,
+                     Agility = 8,
+                     Intelligence = 25,
                      Defense = 10,
                      teamId = 1
                  },
                  new Character
                  {
-                    Id = 3,
-                    Name = "Peter Griffin",
-                    HP = 5,
-                    Strength = 5,
-                    Agility = 25,
-                    Intelligence = 5,
+                     CharacterId = 3,
+                     Name = "Peter Griffin",
+                     HP = 5,
+                     Strength = 5,
+                     Agility = 25,
+                     Intelligence = 5,
                      Defense = 10,
                      teamId = 1
                  },
                  new Character
                  {
-                     Id = 1,
+                     CharacterId = 4,
                      Name = "Kyle",
                      HP = 10,
                      Strength = 7,
@@ -64,7 +63,7 @@ namespace CombatGame.Models
                  },
                  new Character
                  {
-                     Id = 2,
+                     CharacterId = 5,
                      Name = "Terry",
                      HP = 5,
                      Strength = 25,
@@ -75,7 +74,7 @@ namespace CombatGame.Models
                  },
                  new Character
                  {
-                     Id = 3,
+                     CharacterId = 6,
                      Name = "Matt",
                      HP = 5,
                      Strength = 8,
@@ -88,14 +87,14 @@ namespace CombatGame.Models
             modelBuilder.Entity<Team>().HasData(
                 new Team
                 {
-                    Id = 1,
+                    TeamId = 1,
                     Name = "Boston Beaters",
                     UserId = 1,
                     TotalWins = 0
                 },
                 new Team
                 {
-                    Id = 2,
+                    TeamId = 2,
                     Name = "Das Boyyen",
                     UserId = 2,
                     TotalWins = 10
@@ -115,6 +114,17 @@ namespace CombatGame.Models
                     UserName = "GERno1",
                     Password = "123",
                     TotalWins = 10
+                }
+                );
+            modelBuilder.Entity<Moves>().HasData(
+                new Moves
+                {
+                    MoveId = 1,
+                    Name = "Attack",
+                    Description = "Basic attack",
+                    Type = "Physical",
+                    Power = 1,
+                    speed = 1
                 }
                 );
         }
