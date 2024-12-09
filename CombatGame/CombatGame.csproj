@@ -15,11 +15,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Areas\Battle\Models\" />
     <Folder Include="Areas\Battle\Controllers\" />
     <Folder Include="Areas\Battle\Views\" />
-    <Folder Include="Areas\Teams\Models\" />
-    <Folder Include="Areas\Users\Models\" />
   </ItemGroup>
 
 </Project>

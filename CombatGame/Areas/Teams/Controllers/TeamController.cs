@@ -29,5 +29,21 @@ namespace CombatGame.Areas.Teams.Controllers
 
             return View(team);
         }
+        [HttpGet]
+        public IActionResult Create()
+        {
+            ViewBag.Action = "Crete";
+            ViewBag.Moves = context.Moves.OrderBy(g => g.Name).ToList();
+            ViewBag.id = HttpContext.Session.GetInt32("id");
+            return View("Create", new Team());
+        }
+        [HttpPost]
+        public IActionResult Create(Team team)
+        {
+                context.Teams.Add(team);
+                context.SaveChanges();
+                return RedirectToAction("Index", "Home", new { area = "" });
+            
+        }
     }
 }
