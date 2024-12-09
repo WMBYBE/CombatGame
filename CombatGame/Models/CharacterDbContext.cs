@@ -103,14 +103,14 @@ namespace CombatGame.Models
             modelBuilder.Entity<User>().HasData(
                 new User
                 {
-                    userId = 1,
+                    UserId = 1,
                     UserName = "NYnumb1",
                     Password = "321",
                     TotalWins = 0
                 },
                 new User
                 {
-                    userId = 2,
+                    UserId = 2,
                     UserName = "GERno1",
                     Password = "123",
                     TotalWins = 10
