@@ -1,0 +1,20 @@
+﻿@model List<CombatGame.Models.Team> //index for viewing a user's post
+@{
+    ViewBag.Title = "Team";
+    Layout = "_Layout";
+}
+
+<h2>@ViewBag.User.UserName</h2>
+    <table class="table table-bordered table-striped">
+
+        <tbody>
+            @foreach (var teams in Model)
+            {
+                <tr>
+                    <td>
+                    <a class="text-decoration-none border border-dark text-dark" asp-controller="Team" asp-action="Index" asp-area="Teams" asp-route-id="@teams.TeamId"> @teams.Name </a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>

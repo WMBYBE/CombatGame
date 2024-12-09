@@ -19,9 +19,7 @@
     <Folder Include="Areas\Battle\Controllers\" />
     <Folder Include="Areas\Battle\Views\" />
     <Folder Include="Areas\Teams\Models\" />
-    <Folder Include="Areas\Users\Controllers\" />
     <Folder Include="Areas\Users\Models\" />
-    <Folder Include="Areas\Users\Views\" />
   </ItemGroup>
 
 </Project>

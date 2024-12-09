@@ -4,6 +4,7 @@ using Microsoft.Extensions.Hosting;
 
 namespace CombatGame.Areas.Teams.Controllers
 {
+    [Area("Teams")]
     public class TeamController : Controller
     {
         private CharacterDbContext context { get; set; }

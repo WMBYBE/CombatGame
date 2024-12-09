@@ -44,13 +44,14 @@ app.MapAreaControllerRoute(
     pattern: "Battle/{controller=Battle}/{action=Index}/{id?}");
 
 app.MapAreaControllerRoute(
-    name: "Users",
-    areaName: "Users",
-    pattern: "Users/{controller=User}/{action=Index}/{id?}");
-app.MapAreaControllerRoute(
     name: "Teams",
     areaName: "Teams",
     pattern: "Teams/{controller=Team}/{action=Index}/{id?}");
+
+app.MapAreaControllerRoute(
+    name: "Users",
+    areaName: "Users",
+    pattern: "Users/{controller=User}/{action=Index}/{id?}");
 
 app.MapControllerRoute(
     name: "default",
