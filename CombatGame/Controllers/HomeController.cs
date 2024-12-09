@@ -27,5 +27,38 @@ namespace CombatGame.Controllers
             return View(teams);
         }
 
+        public IActionResult Login()
+        {
+            return View();
+        }
+        [HttpPost]
+        public IActionResult Login(User user)
+        {
+            string name = user.UserName;
+            IQueryable<User> query = context.Users.Where(m => m.UserName == name);
+            //List<User> identification = query.ToList();
+            var foundUser = query.FirstOrDefault();
+
+            string password = user.Password;
+            IQueryable<User> passwords = context.Users.Where(m => m.Password == password);
+            var foundPassword = passwords.FirstOrDefault();
+
+            if ((foundUser != null) && foundPassword != null)
+            {
+
+
+                HttpContext.Session.SetInt32("id", foundUser.UserId);
+                ViewBag.id = foundUser.UserId;
+
+                return RedirectToAction("Index", "Home");
+            }
+            else
+            {
+                ViewBag.error = "Invalid username or password";
+                return View();
+            }
+
+        }
+
     }
 }
