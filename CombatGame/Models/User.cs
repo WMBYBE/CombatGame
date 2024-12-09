@@ -2,7 +2,7 @@
 {
     public class User
     {
-        public int userId { get; set; }
+        public int UserId { get; set; }
         public string UserName { get; set; } //login with email not required so lets omit it
         public string Password { get; set; }
         public List<Team> Teams { get; set; } = new List<Team>();
