@@ -1,0 +1,24 @@
+﻿@model CombatGame.Models.Team
+﻿@{
+    ViewBag.Title = "Post";
+    Layout = "_Layout";
+}
+
+<table class="table">
+    <thead>
+        <tr>
+            <td scope="col">@Model.Name</td>
+    </thead>
+
+</table>
+<div class="col-sm-2">
+    <div class="list-group">
+        @foreach (CombatGame.Models.Character c in ViewBag.Characters)
+        {
+            <table>
+                <td>@c.Name</td>
+            </table>
+
+        }
+    </div>
+</div>

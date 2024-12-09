@@ -18,12 +18,6 @@ namespace CombatGame.Controllers
         {
             var teams = context.Teams.OrderBy(c => c.Name).ToList(); //Sends the lsit of forums to the index page so that you can see them all
 
-            List<Character> characters;
-            {
-                characters = context.Characters
-                    .OrderBy(p => p.Name).ToList();
-            }
-
             return View(teams);
         }
 

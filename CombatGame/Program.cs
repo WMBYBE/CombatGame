@@ -38,6 +38,20 @@ app.UseSession();
 app.UseAuthentication();
 app.UseAuthorization();
 
+app.MapAreaControllerRoute(
+    name: "Battle",
+    areaName: "Battle",
+    pattern: "Battle/{controller=Battle}/{action=Index}/{id?}");
+
+app.MapAreaControllerRoute(
+    name: "Users",
+    areaName: "Users",
+    pattern: "Users/{controller=User}/{action=Index}/{id?}");
+app.MapAreaControllerRoute(
+    name: "Teams",
+    areaName: "Teams",
+    pattern: "Teams/{controller=Team}/{action=Index}/{id?}");
+
 app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Home}/{action=Index}/{id?}");

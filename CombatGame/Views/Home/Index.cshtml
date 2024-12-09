@@ -15,7 +15,7 @@
         {
             <tr>
                 <td>
-                    <a class="text-decoration-none border border-dark text-dark" > @teams.Name </a>
+                    <a class="text-decoration-none border border-dark text-dark" asp-controller="Team" asp-action="Index" asp-area="Teams" asp-route-id="@teams.TeamId" > @teams.Name </a>
                 </td>
             </tr>
         }
