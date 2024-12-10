@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace CombatGame.Migrations
 {
     [DbContext(typeof(CharacterDbContext))]
-    [Migration("20241204174630_Initial")]
-    partial class Initial
+    [Migration("20241210212343_initial")]
+    partial class initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -51,12 +51,15 @@ namespace CombatGame.Migrations
                     b.Property<int>("Strength")
                         .HasColumnType("int");
 
-                    b.Property<int>("teamId")
+                    b.Property<int?>("TeamId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("moveId")
                         .HasColumnType("int");
 
                     b.HasKey("CharacterId");
 
-                    b.HasIndex("teamId");
+                    b.HasIndex("TeamId");
 
                     b.ToTable("Characters");
 
@@ -70,7 +73,7 @@ namespace CombatGame.Migrations
                             Intelligence = 7,
                             Name = "Dave",
                             Strength = 20,
-                            teamId = 1
+                            moveId = 0
                         },
                         new
                         {
@@ -81,7 +84,7 @@ namespace CombatGame.Migrations
                             Intelligence = 25,
                             Name = "Tony",
                             Strength = 5,
-                            teamId = 1
+                            moveId = 0
                         },
                         new
                         {
@@ -92,7 +95,7 @@ namespace CombatGame.Migrations
                             Intelligence = 5,
                             Name = "Peter Griffin",
                             Strength = 5,
-                            teamId = 1
+                            moveId = 0
                         },
                         new
                         {
@@ -103,7 +106,7 @@ namespace CombatGame.Migrations
                             Intelligence = 20,
                             Name = "Kyle",
                             Strength = 7,
-                            teamId = 2
+                            moveId = 0
                         },
                         new
                         {
@@ -114,7 +117,7 @@ namespace CombatGame.Migrations
                             Intelligence = 5,
                             Name = "Terry",
                             Strength = 25,
-                            teamId = 2
+                            moveId = 0
                         },
                         new
                         {
@@ -125,7 +128,64 @@ namespace CombatGame.Migrations
                             Intelligence = 5,
                             Name = "Matt",
                             Strength = 8,
-                            teamId = 2
+                            moveId = 0
+                        });
+                });
+
+            modelBuilder.Entity("CombatGame.Models.CharacterMoves", b =>
+                {
+                    b.Property<int>("id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("id"), 1L, 1);
+
+                    b.Property<int>("CharacterId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("MoveId")
+                        .HasColumnType("int");
+
+                    b.HasKey("id");
+
+                    b.ToTable("CharacterMoves");
+
+                    b.HasData(
+                        new
+                        {
+                            id = 1,
+                            CharacterId = 1,
+                            MoveId = 1
+                        },
+                        new
+                        {
+                            id = 2,
+                            CharacterId = 2,
+                            MoveId = 1
+                        },
+                        new
+                        {
+                            id = 3,
+                            CharacterId = 3,
+                            MoveId = 1
+                        },
+                        new
+                        {
+                            id = 4,
+                            CharacterId = 4,
+                            MoveId = 1
+                        },
+                        new
+                        {
+                            id = 5,
+                            CharacterId = 5,
+                            MoveId = 1
+                        },
+                        new
+                        {
+                            id = 6,
+                            CharacterId = 6,
+                            MoveId = 1
                         });
                 });
 
@@ -136,9 +196,6 @@ namespace CombatGame.Migrations
                         .HasColumnType("int");
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("MoveId"), 1L, 1);
-
-                    b.Property<int?>("CharacterId")
-                        .HasColumnType("int");
 
                     b.Property<string>("Description")
                         .IsRequired()
@@ -159,8 +216,6 @@ namespace CombatGame.Migrations
                         .HasColumnType("int");
 
                     b.HasKey("MoveId");
-
-                    b.HasIndex("CharacterId");
 
                     b.ToTable("Moves");
 
@@ -217,13 +272,70 @@ namespace CombatGame.Migrations
                         });
                 });
 
-            modelBuilder.Entity("CombatGame.Models.User", b =>
+            modelBuilder.Entity("CombatGame.Models.TeamMembers", b =>
                 {
-                    b.Property<int>("userId")
+                    b.Property<int>("id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("userId"), 1L, 1);
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("id"), 1L, 1);
+
+                    b.Property<int>("CharacterId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("TeamId")
+                        .HasColumnType("int");
+
+                    b.HasKey("id");
+
+                    b.ToTable("TeamMembers");
+
+                    b.HasData(
+                        new
+                        {
+                            id = 1,
+                            CharacterId = 1,
+                            TeamId = 1
+                        },
+                        new
+                        {
+                            id = 2,
+                            CharacterId = 2,
+                            TeamId = 1
+                        },
+                        new
+                        {
+                            id = 3,
+                            CharacterId = 3,
+                            TeamId = 1
+                        },
+                        new
+                        {
+                            id = 4,
+                            CharacterId = 4,
+                            TeamId = 2
+                        },
+                        new
+                        {
+                            id = 5,
+                            CharacterId = 5,
+                            TeamId = 2
+                        },
+                        new
+                        {
+                            id = 6,
+                            CharacterId = 6,
+                            TeamId = 2
+                        });
+                });
+
+            modelBuilder.Entity("CombatGame.Models.User", b =>
+                {
+                    b.Property<int>("UserId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("UserId"), 1L, 1);
 
                     b.Property<string>("Password")
                         .IsRequired()
@@ -236,21 +348,21 @@ namespace CombatGame.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.HasKey("userId");
+                    b.HasKey("UserId");
 
                     b.ToTable("Users");
 
                     b.HasData(
                         new
                         {
-                            userId = 1,
+                            UserId = 1,
                             Password = "321",
                             TotalWins = 0,
                             UserName = "NYnumb1"
                         },
                         new
                         {
-                            userId = 2,
+                            UserId = 2,
                             Password = "123",
                             TotalWins = 10,
                             UserName = "GERno1"
@@ -259,20 +371,9 @@ namespace CombatGame.Migrations
 
             modelBuilder.Entity("CombatGame.Models.Character", b =>
                 {
-                    b.HasOne("CombatGame.Models.Team", "Team")
+                    b.HasOne("CombatGame.Models.Team", null)
                         .WithMany("Characters")
-                        .HasForeignKey("teamId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Team");
-                });
-
-            modelBuilder.Entity("CombatGame.Models.Moves", b =>
-                {
-                    b.HasOne("CombatGame.Models.Character", null)
-                        .WithMany("Moves")
-                        .HasForeignKey("CharacterId");
+                        .HasForeignKey("TeamId");
                 });
 
             modelBuilder.Entity("CombatGame.Models.Team", b =>
@@ -284,11 +385,6 @@ namespace CombatGame.Migrations
                         .IsRequired();
 
                     b.Navigation("User");
-                });
-
-            modelBuilder.Entity("CombatGame.Models.Character", b =>
-                {
-                    b.Navigation("Moves");
                 });
 
             modelBuilder.Entity("CombatGame.Models.Team", b =>

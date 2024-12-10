@@ -1,0 +1,48 @@
+﻿@model CombatGame.Models.Character
+
+@{
+}
+
+<form asp-action="createCharacter" method="post">
+    <div asp-validation-summary="All" class="text-danger"></div>
+
+    <div class="form-group">
+        <label asp-for="Name">Name</label>
+        <input asp-for="Name" class="form-control">
+    </div>
+
+    <div class="form-group">
+        <label asp-for="HP">HP</label>
+        <input asp-for="HP" class="form-control">
+    </div>
+    <div class="form-group">
+        <label asp-for="Strength">Strength</label>
+        <input asp-for="Strength" class="form-control">
+    </div>
+    <div class="form-group">
+        <label asp-for="Agility">Agility</label>
+        <input asp-for="Agility" class="form-control">
+    </div>
+    <div class="form-group">
+        <label asp-for="Intelligence">Intelligence</label>
+        <input asp-for="Intelligence" class="form-control">
+    </div>
+    <div class="form-group">
+        <label asp-for="Defense">Defense</label>
+        <input asp-for="Defense" class="form-control">
+    </div>
+
+    <div class="form-group">
+        <label asp-for="moveId">Move</label>
+        <select asp-for="moveId" class="form-control">
+            <option value="">Select a Move</option>
+            @foreach (CombatGame.Models.Moves m in ViewBag.Moves)
+            {
+                <option value="@m.MoveId">@m.Name</option>
+            }
+        </select>
+    </div>
+
+    <button type="submit" class="btn btn-primary">@ViewBag.Action</button>
+    <a asp-area="" asp-controller="Home" asp-action="Index" class="btn btn-primary">Cancel</a>
+</form>

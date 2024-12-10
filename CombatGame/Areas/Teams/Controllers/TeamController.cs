@@ -21,7 +21,6 @@ namespace CombatGame.Areas.Teams.Controllers
             List<Character> characters;
             {
                 characters = context.Characters
-                    .Where(p => p.teamId == id)
                     .OrderBy(p => p.Name).ToList();
             }
 

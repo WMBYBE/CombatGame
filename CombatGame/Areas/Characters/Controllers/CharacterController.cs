@@ -25,5 +25,21 @@ namespace CombatGame.Areas.Characters.Controllers
 
             return View(character);
         }
+        [HttpGet]
+        public IActionResult createCharacter()
+        {
+            ViewBag.Action = "create";
+            ViewBag.Moves = context.Moves.OrderBy(g => g.Name).ToList();
+            ViewBag.id = HttpContext.Session.GetInt32("id");
+            return View("createCharacter", new Character());
+        }
+        [HttpPost]
+        public IActionResult createCharacter(Character character)
+        {
+            context.Characters.Add(character);
+            context.SaveChanges();
+            return RedirectToAction("Index", "Home", new { area = "" });
+
+        }
     }
 }

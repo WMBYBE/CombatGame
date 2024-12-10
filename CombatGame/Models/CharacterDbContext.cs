@@ -26,7 +26,7 @@ namespace CombatGame.Models
                     Agility = 10,
                     Intelligence = 7,
                     Defense = 10,
-                    teamId = 1
+                    moveId = 1
                 },
                  new Character
                  {
@@ -37,7 +37,7 @@ namespace CombatGame.Models
                      Agility = 8,
                      Intelligence = 25,
                      Defense = 10,
-                     teamId = 1
+                     moveId = 1
                  },
                  new Character
                  {
@@ -48,7 +48,7 @@ namespace CombatGame.Models
                      Agility = 25,
                      Intelligence = 5,
                      Defense = 10,
-                     teamId = 1
+                     moveId = 1
                  },
                  new Character
                  {
@@ -59,7 +59,7 @@ namespace CombatGame.Models
                      Agility = 10,
                      Intelligence = 20,
                      Defense = 10,
-                     teamId = 2
+                     moveId = 1
                  },
                  new Character
                  {
@@ -70,7 +70,7 @@ namespace CombatGame.Models
                      Agility = 8,
                      Intelligence = 5,
                      Defense = 10,
-                     teamId = 2
+                     moveId = 1
                  },
                  new Character
                  {
@@ -81,7 +81,7 @@ namespace CombatGame.Models
                      Agility = 25,
                      Intelligence = 5,
                      Defense = 10,
-                     teamId = 2
+                     moveId = 1
                  }
                 );
             modelBuilder.Entity<Team>().HasData(
@@ -126,6 +126,44 @@ namespace CombatGame.Models
                     Power = 1,
                     speed = 1
                 }
+                );
+            modelBuilder.Entity<TeamMembers>().HasData(
+                new TeamMembers
+                {
+                    id = 1,
+                    CharacterId = 1,
+                    TeamId = 1
+                },
+                new TeamMembers
+                {
+                    id = 2,
+                    CharacterId = 2,
+                    TeamId = 1
+                },
+                 new TeamMembers
+                 {
+                     id = 3,
+                     CharacterId = 3,
+                     TeamId = 1
+                 },
+                 new TeamMembers
+                 {
+                     id = 4,
+                     CharacterId = 4,
+                     TeamId = 2
+                 },
+                 new TeamMembers
+                 {
+                     id = 5,
+                     CharacterId = 5,
+                     TeamId = 2
+                 },
+                 new TeamMembers
+                 {
+                     id = 6,
+                     CharacterId = 6,
+                     TeamId = 2
+                 }
                 );
         }
     }
