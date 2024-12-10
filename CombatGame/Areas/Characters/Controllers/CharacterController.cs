@@ -23,7 +23,6 @@ namespace CombatGame.Areas.Characters.Controllers
         {
             Character character = context.Characters.Find(id);
 
-
             return View(character);
         }
     }

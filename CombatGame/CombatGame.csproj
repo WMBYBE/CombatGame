@@ -17,7 +17,6 @@
 
   <ItemGroup>
     <Folder Include="Areas\Battle\Controllers\" />
-    <Folder Include="Areas\Battle\Views\" />
   </ItemGroup>
 
 </Project>
