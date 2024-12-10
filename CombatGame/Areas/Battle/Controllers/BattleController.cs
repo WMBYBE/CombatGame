@@ -20,15 +20,15 @@ namespace CombatGame.Areas.Battle.Controllers
 
             return View();
         }
-        public IActionResult Result(int team1, int team2)
+        public IActionResult Result(int Team1ID, int Team2ID)
         {
             if (DateTime.Now.Ticks % 2 == 1)
             {
-                ViewBag.Winner = team1;
+                ViewBag.Winner = Team1ID;
             }
             else
             {
-                ViewBag.Winner = team2;
+                ViewBag.Winner = Team2ID;
             }
             return View();
         }
