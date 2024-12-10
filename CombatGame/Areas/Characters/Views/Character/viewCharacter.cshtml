@@ -1,0 +1,23 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@model CombatGame.Models.Character
+@{
+}
+<table class="table">
+    <thead>
+        <tr>
+            <td scope="col">@Model.Name</td>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td colspan="2">@Model.HP</td>
+            <td colspan="2">@Model.Defense</td>
+            <td colspan="2">@Model.Strength</td>
+            <td colspan="2">@Model.Agility</td>
+            <td colspan="2">@Model.Intelligence</td>
+            <td colspan="2">@Model.Moves</td>
+        </tr>
+    </tbody>
+</table>

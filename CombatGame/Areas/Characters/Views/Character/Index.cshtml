@@ -1,0 +1,23 @@
+﻿@*
+   list of characters
+*@
+@model List<CombatGame.Models.Character> 
+@{
+    ViewBag.Title = "Team";
+    Layout = "_Layout";
+}
+
+<h2>@ViewBag.User.UserName</h2>
+<table class="table table-bordered table-striped">
+
+    <tbody>
+        @foreach (var characters in Model)
+        {
+            <tr>
+                <td>
+                    <a class="text-decoration-none border border-dark text-dark" asp-controller="Character" asp-action="viewCharacter" asp-area="Characters" asp-route-id="@characters.CharacterId"> @characters.Name </a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

@@ -124,7 +124,7 @@
     <div class="form-group">
         <label asp-for="MoveID">Move</label>
         <select asp-for="ForumId" class="form-control">
-            <option value="">Select a Forum to post in</option>
+            <option value="">Select an attack</option>
             @foreach (CombatGame.Models.Moves m in ViewBag.Moves)
             {
                 <option value="@m.MoveId">@m.Name</option>

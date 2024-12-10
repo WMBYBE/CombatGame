@@ -10,15 +10,14 @@
             <td scope="col">@Model.Name</td>
     </thead>
 
-</table>
-<div class="col-sm-2">
-    <div class="list-group">
+    <tbody>
         @foreach (CombatGame.Models.Character c in ViewBag.Characters)
-        {
-            <table>
-                <td>@c.Name</td>
-            </table>
-
+        { 
+            <tr>
+                <td>
+                     @c.Name
+                </td>
+            </tr>
         }
-    </div>
-</div>
+    </tbody>
+</table>
