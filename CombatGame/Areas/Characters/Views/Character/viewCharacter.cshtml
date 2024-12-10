@@ -13,6 +13,7 @@
             <td colspan="2">Strength</td>
             <td colspan="2">Agility</td>
             <td colspan="2">Intelligence</td>
+            <td colspan="2">Move</td>
         </tr>
     </thead>
     <tbody>
@@ -22,6 +23,10 @@
             <td colspan="2">@Model.Strength</td>
             <td colspan="2">@Model.Agility</td>
             <td colspan="2">@Model.Intelligence</td>
+            @foreach (CombatGame.Models.Moves c in ViewBag.move)
+            {
+                <td colspan="2">@c.Name</td>
+            }
         </tr>
     </tbody>
 </table>

@@ -22,6 +22,7 @@ namespace CombatGame.Areas.Characters.Controllers
         public IActionResult viewCharacter(int id)
         {
             Character character = context.Characters.Find(id);
+            ViewBag.move = context.Moves.OrderBy(g => g.Name).ToList();
 
             return View(character);
         }
