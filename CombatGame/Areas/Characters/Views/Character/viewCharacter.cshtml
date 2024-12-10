@@ -4,10 +4,15 @@
 @model CombatGame.Models.Character
 @{
 }
+@Model.Name
 <table class="table">
     <thead>
         <tr>
-            <td scope="col">@Model.Name</td>
+            <td colspan="2">HP</td>
+            <td colspan="2">Defense</td>
+            <td colspan="2">Strength</td>
+            <td colspan="2">Agility</td>
+            <td colspan="2">Intelligence</td>
         </tr>
     </thead>
     <tbody>
@@ -17,7 +22,6 @@
             <td colspan="2">@Model.Strength</td>
             <td colspan="2">@Model.Agility</td>
             <td colspan="2">@Model.Intelligence</td>
-            <td colspan="2">@Model.Moves</td>
         </tr>
     </tbody>
 </table>
