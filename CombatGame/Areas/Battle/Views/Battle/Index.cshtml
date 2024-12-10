@@ -1,0 +1,23 @@
+﻿@{
+    ViewBag.Title = "Battle";
+}
+
+<form asp-action="result" method="post">
+    <div asp-validation-summary="All" class="text-danger"></div>
+    <h1> Select Your Team</h1>
+    @foreach (var teams in Model)
+    {
+        <input type="radio" id=team1 value=@teams.TeamId>
+        <label for="team1"> @teams.Name</label>
+    }
+
+    <h1> Select Enemy Team</h1>
+    @foreach (var teams in Model)
+    {
+        <input type="radio" id=team2 value=@teams.TeamId>
+        <label for="team2"> @teams.Name</label>
+    }
+
+        <button type="submit" class="btn btn-primary">Fight!</button>
+        <a asp-area="" asp-controller="Home" asp-action="Index" class="btn btn-primary">Cancel</a>
+    </form>
