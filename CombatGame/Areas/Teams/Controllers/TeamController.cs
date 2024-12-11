@@ -50,14 +50,14 @@ namespace CombatGame.Areas.Teams.Controllers
             
         }
         [HttpGet]
-        public IActionResult Edit(int TeamId)
+        public IActionResult Edit(int Id)
         {
             List<Character> characters;
             {
                 characters = context.Characters
                     .OrderBy(p => p.Name).ToList();
             }
-            var team = context.Teams.Find(TeamId);
+            var team = context.Teams.Find(Id);
             ViewBag.team = team;
             ViewBag.Characters = characters;
             return View("Edit", new TeamMembers());
