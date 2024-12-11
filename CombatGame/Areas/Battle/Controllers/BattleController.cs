@@ -23,20 +23,33 @@ namespace CombatGame.Areas.Battle.Controllers
         }
         public IActionResult Result(int Team1ID, int Team2ID)
         {
+            var team1 = context.Teams.Find(Team1ID);
+            var team2 = context.Teams.Find(Team2ID);
             if (DateTime.Now.Ticks % 2 == 1)
             {
                 ViewBag.Winner = Team1ID;
-                var team = context.Teams.Find(Team1ID);
-                team.TotalWins += 1;
-                var Winner = context.Users
-                        .Where(p => p.UserId == team.UserId);
-                Winner.TotalWins += 1;
-                context.SaveChanges();
+
+                team1.TotalWins += 1;
+
+                var user1 = context.Users.FirstOrDefault(u => u.UserId == team1.UserId);
+                if (user1 != null)
+                {
+                    user1.TotalWins += 1;
+                }
+                else
+                {
+                    ViewBag.Winner = Team2ID;
+
+                    team2.TotalWins += 1;
+
+                    var user2 = context.Users.FirstOrDefault(u => u.UserId == team1.UserId);
+                    if (user2 != null)
+                    {
+                        user2.TotalWins += 1;
+                    }
+                }
             }
-            else
-            {
-                ViewBag.Winner = Team2ID;
-            }
+            context.SaveChanges();
             return View();
         }
     }
