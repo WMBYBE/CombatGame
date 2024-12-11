@@ -1,5 +1,22 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
+﻿@model CombatGame.Models.TeamMembers
 @{
+    ViewBag.Title = "Add to team";
 }
+<form asp-action="edit" method="post">
+    <div asp-validation-summary="All" class="text-danger"></div>
+        <h1> Select Your Team</h1>
+        <div class="form-group">
+            <label asp-for="CharacterId">Team</label>
+            <select asp-for="CharacterId" class="form-control">
+                <option value="">Select character to add to team</option>
+                @foreach (CombatGame.Models.Character c in ViewBag.characters)
+                {
+                    <option value="@c.CharacterId">@c.Name</option>
+                }
+            </select>
+        </div>
+    <input type="hidden" asp-for="TeamId" value="@ViewBag.team.TeamId" />
+    <button type="submit" class="btn btn-primary">Add!</button>
+    <a asp-area="" asp-controller="Home" asp-action="Index" class="btn btn-primary">Cancel</a>
+
+</form>

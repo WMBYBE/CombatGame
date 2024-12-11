@@ -49,5 +49,26 @@ namespace CombatGame.Areas.Teams.Controllers
                 return RedirectToAction("Index", "Home", new { area = "" });
             
         }
+        [HttpGet]
+        public IActionResult Edit(int TeamId)
+        {
+            List<Character> characters;
+            {
+                characters = context.Characters
+                    .OrderBy(p => p.Name).ToList();
+            }
+            var team = context.Teams.Find(TeamId);
+            ViewBag.team = team;
+            ViewBag.Characters = characters;
+            return View("Edit", new TeamMembers());
+        }
+        [HttpPost]
+        public IActionResult edit(TeamMembers teamMember)
+        {
+            context.TeamMembers.Add(teamMember);
+            context.SaveChanges();
+            return RedirectToAction("Index", "Home", new { area = "" });
+
+        }
     }
 }

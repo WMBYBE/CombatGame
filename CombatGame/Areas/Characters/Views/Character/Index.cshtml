@@ -1,13 +1,13 @@
 ﻿@*
    list of characters
 *@
-@model List<CombatGame.Models.Character> //index for viewing a user's post
+@model List<CombatGame.Models.Character>
 @{
     ViewBag.Title = "Characters";
     Layout = "_Layout";
 }
 
-<a class="text-decoration-none border border-dark text-dark" asp-controller="Character" asp-area="Characters" asp-action="createCharacter" asp-route-id="@CombatGame.Models.Team.teamId">Create new Character</a>
+<a class="text-decoration-none border border-dark text-dark" asp-controller="Character" asp-area="Characters" asp-action="createCharacter">Create new Character</a>
 <table class="table table-bordered table-striped">
 
     <tbody>

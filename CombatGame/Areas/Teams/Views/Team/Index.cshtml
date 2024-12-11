@@ -5,7 +5,7 @@
 }
     @if ( @ViewBag.members < 3)
     {
-        <a class="text-decoration-none border border-dark text-dark" asp-controller="Team" asp-area="Teams" asp-action="Edit">add to team</a>
+    <a class="text-decoration-none border border-dark text-dark" asp-controller="Team" asp-area="Teams" asp-action="Edit" asp-route-id="@Model.TeamId">add to team</a>
     }
 <table class="table">
     <thead>
