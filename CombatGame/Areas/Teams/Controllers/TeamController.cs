@@ -31,8 +31,7 @@ namespace CombatGame.Areas.Teams.Controllers
         [HttpGet]
         public IActionResult Create()
         {
-            ViewBag.Action = "Crete";
-            ViewBag.Moves = context.Moves.OrderBy(g => g.Name).ToList();
+            ViewBag.Action = "Create";
             ViewBag.id = HttpContext.Session.GetInt32("id");
             return View("Create", new Team());
         }
