@@ -29,6 +29,7 @@ namespace CombatGame.Areas.Teams.Controllers
                 members = context.TeamMembers
                     .Where(p => p.TeamId == id).ToList();
             }
+            ViewBag.TeamMembers = members;
             ViewBag.Characters = characters;
             ViewBag.members = members.Count();
 

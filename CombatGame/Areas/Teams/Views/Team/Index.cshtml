@@ -13,11 +13,11 @@
             <td scope="col">@Model.Name</td>
     </thead>
     <tbody>
-        @foreach (CombatGame.Models.Character c in ViewBag.Characters)
+        @foreach (CombatGame.Models.TeamMembers c in ViewBag.TeamMembers)
         { 
             <tr>
                 <td>
-                     @c.Name
+                     @c.CharacterId
                 </td>
             </tr>
         }
