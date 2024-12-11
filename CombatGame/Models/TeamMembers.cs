@@ -5,5 +5,6 @@
         public int id { get; set; }
         public int CharacterId { get; set; }
         public int TeamId { get; set; }
+        public Character character { get; set; }
     }
 }
