@@ -27,7 +27,7 @@ namespace CombatGame.Areas.Battle.Controllers
             var team2 = context.Teams.Find(Team2ID);
             if (DateTime.Now.Ticks % 2 == 1)
             {
-                ViewBag.Winner = Team1ID;
+                ViewBag.Winner = team1.Name;
 
                 team1.TotalWins += 1;
 
@@ -36,18 +36,18 @@ namespace CombatGame.Areas.Battle.Controllers
                 {
                     user1.TotalWins += 1;
                 }
-                else
+            else
+            {
+                ViewBag.Winner = team2.Name;
+
+                team2.TotalWins += 1;
+
+                var user2 = context.Users.FirstOrDefault(u => u.UserId == team2.UserId);
+                if (user2 != null)
                 {
-                    ViewBag.Winner = Team2ID;
-
-                    team2.TotalWins += 1;
-
-                    var user2 = context.Users.FirstOrDefault(u => u.UserId == team1.UserId);
-                    if (user2 != null)
-                    {
-                        user2.TotalWins += 1;
-                    }
+                    user2.TotalWins += 1;
                 }
+            }
             }
             context.SaveChanges();
             return View();
