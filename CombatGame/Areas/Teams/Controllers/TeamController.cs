@@ -46,7 +46,14 @@ namespace CombatGame.Areas.Teams.Controllers
         [HttpPost]
         public IActionResult Create(Team team)
         {
-                context.Teams.Add(team);
+            if (team.UserId == 0)
+            {
+                ViewBag.Action = "Create";
+                ViewBag.id = HttpContext.Session.GetInt32("id");
+                ViewBag.error = "must be logged in to create a team";
+                return View("Create", new Team());
+            }
+            context.Teams.Add(team);
                 context.SaveChanges();
                 return RedirectToAction("Index", "Home", new { area = "" });
             

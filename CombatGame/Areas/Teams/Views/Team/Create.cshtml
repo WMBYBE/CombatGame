@@ -3,7 +3,7 @@
 @{
     int? id = Context.Session.GetInt32("id");
 }
-
+<h2>@ViewBag.error</h2>
 <form asp-action="create" method="post">
     <div asp-validation-summary="All" class="text-danger"></div>
 
