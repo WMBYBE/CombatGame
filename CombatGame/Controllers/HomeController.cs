@@ -53,6 +53,10 @@ namespace CombatGame.Controllers
             }
 
         }
+        public IActionResult Leaderboard()
+        {
+            return View();
+        }
 
     }
 }

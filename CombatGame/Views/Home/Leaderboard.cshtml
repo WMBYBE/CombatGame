@@ -1,0 +1,30 @@
+﻿@model User;
+@{
+    ViewBag.Title = "Leaderboard";
+
+}
+
+<head>
+
+</head>
+<h2>
+    Leaderboard:
+</h2>
+<table class="table table-bordered table-striped">
+    <thead>
+        <tr><th>Name</th></tr>
+    </thead>
+    <tbody>
+        @foreach (var users in Model)
+        {
+            <tr>
+                <td>
+                    @users.UserName
+                </td>
+                <td>
+                    @users.TotalWins
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
