@@ -131,37 +131,37 @@ namespace CombatGame.Models
             modelBuilder.Entity<TeamMembers>().HasData(
                 new TeamMembers
                 {
-                    id = 1,
+                    TeamMemberid = 1,
                     CharacterId = 1,
                     TeamId = 1
                 },
                 new TeamMembers
                 {
-                    id = 2,
+                    TeamMemberid = 2,
                     CharacterId = 2,
                     TeamId = 1
                 },
                  new TeamMembers
                  {
-                     id = 3,
+                     TeamMemberid = 3,
                      CharacterId = 3,
                      TeamId = 1
                  },
                  new TeamMembers
                  {
-                     id = 4,
+                     TeamMemberid = 4,
                      CharacterId = 4,
                      TeamId = 2
                  },
                  new TeamMembers
                  {
-                     id = 5,
+                     TeamMemberid = 5,
                      CharacterId = 5,
                      TeamId = 2
                  },
                  new TeamMembers
                  {
-                     id = 6,
+                     TeamMemberid = 6,
                      CharacterId = 6,
                      TeamId = 2
                  }

@@ -67,8 +67,15 @@ namespace CombatGame.Areas.Teams.Controllers
         [HttpPost]
         public IActionResult edit(TeamMembers teamMember)
         {
+            if (teamMember.TeamId == 0)
+            {
+                return RedirectToAction("Index", "Home", new { area = "" });
+            }
+
             context.TeamMembers.Add(teamMember);
             context.SaveChanges();
+
+
             return RedirectToAction("Index", "Home", new { area = "" });
 
         }
