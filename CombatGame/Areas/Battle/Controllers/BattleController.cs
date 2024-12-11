@@ -1,5 +1,6 @@
 ﻿using CombatGame.Models;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using System;
 
 namespace CombatGame.Areas.Battle.Controllers
@@ -25,6 +26,12 @@ namespace CombatGame.Areas.Battle.Controllers
             if (DateTime.Now.Ticks % 2 == 1)
             {
                 ViewBag.Winner = Team1ID;
+                var team = context.Teams.Find(Team1ID);
+                team.TotalWins += 1;
+                var Winner = context.Users
+                        .Where(p => p.UserId == team.UserId);
+                Winner.TotalWins += 1;
+                context.SaveChanges();
             }
             else
             {
