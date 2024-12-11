@@ -13,6 +13,7 @@ namespace CombatGame.Models
         public DbSet<Team> Teams { get; set; }
         public DbSet<Moves> Moves { get; set; }
         public DbSet<User> Users { get; set; }
+        public DbSet<TeamMembers> TeamMembers { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

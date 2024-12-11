@@ -1,6 +1,7 @@
 ﻿using CombatGame.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Hosting;
+using System.Diagnostics.Metrics;
 
 namespace CombatGame.Areas.Teams.Controllers
 {
@@ -23,8 +24,13 @@ namespace CombatGame.Areas.Teams.Controllers
                 characters = context.Characters
                     .OrderBy(p => p.Name).ToList();
             }
-
+            List<TeamMembers> members;
+            {
+                members = context.TeamMembers
+                    .Where(p => p.TeamId == id).ToList();
+            }
             ViewBag.Characters = characters;
+            ViewBag.members = members.Count();
 
             return View(team);
         }

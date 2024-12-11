@@ -3,13 +3,15 @@
     ViewBag.Title = "Team";
     Layout = "_Layout";
 }
-
+    @if ( @ViewBag.members < 3)
+    {
+        <a class="text-decoration-none border border-dark text-dark" asp-controller="Team" asp-area="Teams" asp-action="Edit">add to team</a>
+    }
 <table class="table">
     <thead>
         <tr>
             <td scope="col">@Model.Name</td>
     </thead>
-
     <tbody>
         @foreach (CombatGame.Models.Character c in ViewBag.Characters)
         { 
