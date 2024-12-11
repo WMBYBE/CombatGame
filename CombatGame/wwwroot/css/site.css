@@ -14,5 +14,6 @@ html {
 }
 
 body {
-  margin-bottom: 60px;
+    background-color: #939393;
+    color: #e0e0e0;
 }
