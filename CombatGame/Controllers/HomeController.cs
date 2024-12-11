@@ -55,7 +55,8 @@ namespace CombatGame.Controllers
         }
         public IActionResult Leaderboard()
         {
-            return View();
+            var users = context.Users.OrderBy(c => c.UserName).ToList();
+            return View(users);
         }
 
     }
