@@ -37,6 +37,14 @@ namespace CombatGame.Areas.Characters.Controllers
         [HttpPost]
         public IActionResult createCharacter(Character character)
         {
+            var characterStat = character.HP + character.Strength + character.Agility + character.Defense + character.Intelligence;
+            if (characterStat <= 0 || characterStat > 50) {
+                ViewBag.Action = "create";
+                ViewBag.Moves = context.Moves.OrderBy(g => g.Name).ToList();
+                ViewBag.error = "Character stats must total between 0 and 50";
+                ViewBag.id = HttpContext.Session.GetInt32("id");
+                return View("createCharacter", new Character());
+            }
             context.Characters.Add(character);
             context.SaveChanges();
             return RedirectToAction("Index", "Home", new { area = "" });
