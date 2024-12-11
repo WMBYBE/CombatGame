@@ -1,22 +1,33 @@
-﻿@{
+﻿@model CombatGame.Models.Battle
+@{
     ViewBag.Title = "Battle";
 }
 
 <form asp-action="result" method="post">
     <div asp-validation-summary="All" class="text-danger"></div>
     <h1> Select Your Team</h1>
-    @foreach (var teams in Model)
-    {
-        <input type="radio" id=team1 value=@teams.TeamId>
-        <label for="team1"> @teams.Name</label>
-    }
+    <div class="form-group">
+        <label asp-for="Team1ID">Team</label>
+        <select asp-for="Team1ID" class="form-control">
+            <option value="">Select Your Team </option>
+            @foreach (CombatGame.Models.Team t in ViewBag.teams)
+            {
+                <option value="@t.TeamId">@t.Name</option>
+            }
+        </select>
+    </div>
 
     <h1> Select Enemy Team</h1>
-    @foreach (var teams in Model)
-    {
-        <input type="radio" id=team2 value=@teams.TeamId>
-        <label for="team2"> @teams.Name</label>
-    }
+    <div class="form-group">
+        <label asp-for="Team2ID">Team</label>
+        <select asp-for="Team2ID" class="form-control">
+            <option value="">Select Enemy Team</option>
+            @foreach (CombatGame.Models.Team tm in ViewBag.teams)
+            {
+                <option value="@tm.TeamId">@tm.Name</option>
+            }
+        </select>
+    </div>
 
         <button type="submit" class="btn btn-primary">Fight!</button>
         <a asp-area="" asp-controller="Home" asp-action="Index" class="btn btn-primary">Cancel</a>
